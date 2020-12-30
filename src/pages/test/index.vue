@@ -2,7 +2,6 @@
   <view class="index">
     <text>{{ msg }}{{ res.length }}</text>
     <scroll-view></scroll-view>
-    <button @tap="goTest">跳转</button>
   </view>
 </template>
 
@@ -10,10 +9,9 @@
 import { onMounted, reactive, ref } from "vue";
 import "./index.scss";
 import { test } from "../../api/test";
-import Taro from "@tarojs/taro";
 
 export default {
-  name: "home",
+  name: "test",
   // option Api
   // data() {
   //   return {
@@ -37,11 +35,7 @@ export default {
       res.value = result;
     };
     getRes();
-    const goTest = () => {
-      console.log(1111);
-      Taro.navigateTo({ url: "/pages/test/index" });
-    };
-    return { res, msg, goTest };
+    return { res, msg };
   },
 };
 </script>
