@@ -43,7 +43,7 @@ export default function request(options) {
 }
 
 const showLoading = () => {
-  Taro.showLoading()
+  Taro.showLoading({ title: '加载中' })
   Taro.showNavigationBarLoading()
 }
 
