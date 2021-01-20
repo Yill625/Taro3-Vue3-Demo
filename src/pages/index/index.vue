@@ -39,7 +39,6 @@ export default {
     getRes();
     const goTest = () => {
       console.log(1111);
-      Taro.navigateTo({ url: "/pages/test/index" });
     };
     return { res, msg, goTest };
   },
