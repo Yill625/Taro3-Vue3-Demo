@@ -13,8 +13,11 @@ export default {
       text: "日志"
     }]
   },
+  lazyCodeLoading: "requiredComponents",
   window: {
-    backgroundTextStyle: 'light',
+    enablePullDownRefresh: true,
+    backgroundColor: "#ffffff",
+    backgroundTextStyle: 'dark',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
