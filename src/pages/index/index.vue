@@ -1,16 +1,18 @@
 <template>
   <view class="index">
     <text>{{ msg }}{{ res.length }}</text>
+    {{ count }}
     <scroll-view></scroll-view>
-    <button @tap="goTest">跳转</button>
+    <button @tap="increment">跳转</button>
   </view>
 </template>
 
 <script>
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref,computed } from "vue";
 import "./index.scss";
 import { test } from "../../api/test";
 import Taro from "@tarojs/taro";
+import { useStore } from "vuex";
 
 export default {
   name: "home",
@@ -35,6 +37,7 @@ export default {
     }
   },
   setup() {
+    const store = useStore();
     const res = ref([]);
     const msg = ref("1223");
     const getRes = async () => {
@@ -46,7 +49,8 @@ export default {
       console.log(1111);
       Taro.navigateTo({ url: "/pages/demo/index" });
     };
-    return { res, msg, goTest };
+    return { res, msg, goTest,count: computed(() => store.state.userInfo.count),
+      increment: () => store.commit("increment"), };
   },
 };
 </script>

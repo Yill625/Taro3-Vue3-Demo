@@ -1,7 +1,7 @@
 <template>
   <view class="index">
-    <button @tap="increment">1111111</button>
-    <text>{{ state.counter }}{{ res.length }}</text>
+    <button>1111111</button>
+    <text>{{ count }}</text>
     <scroll-view>+++</scroll-view>
   </view>
 </template>
@@ -10,27 +10,13 @@
 import { onMounted, reactive, ref } from "vue";
 import "./index.scss";
 import { test } from "../../api/test";
-import { createStore } from "../../vuex/index";
+import { useStore } from "vuex";
 
 export default {
   name: "test",
-  // option Api
-  // data() {
-  //   return {
-  //     res: [],
-  //     msg: "",
-  //   };
-  // },
-  // created() {
-  //   this.getRes();
-  // },
-  // methods: {
-  //   getRes: async function () {
-  //     this.res = await test();
-  //   },
-  // },
   setup() {
-    const { state, increment } = createStore();
+    const store = useStore();
+    const count = store.state.userInfo.count
     const res = ref([]);
     const msg = ref("111");
     const getRes = async () => {
@@ -38,7 +24,7 @@ export default {
       res.value = result;
     };
     getRes();
-    return { res, msg, state, increment };
+    return { res, msg ,count};
   },
 };
 </script>
