@@ -1,7 +1,8 @@
 export default {
   pages: [
     'pages/index/index',
-    'pages/test/index'
+    'pages/test/index',
+    'pages/demo/index'
   ],
   tabBar: {
     borderStyle: 'white',

@@ -14,24 +14,29 @@ import Taro from "@tarojs/taro";
 
 export default {
   name: "home",
-  // option Api
-  // data() {
-  //   return {
-  //     res: [],
-  //     msg: "",
-  //   };
-  // },
-  // created() {
-  //   this.getRes();
-  // },
-  // methods: {
-  //   getRes: async function () {
-  //     this.res = await test();
-  //   },
-  // },
+  data() {
+    return {
+      res1: [],
+      msg1: "121",
+    };
+  },
+  created() {
+    this.getRes();
+  },
+  methods: {
+    getRes: async function () {
+      this.res = await test();
+    },
+  },
+   onShareAppMessage (res) {
+    return {
+      title: this.msg1,
+      path: '/page/user?id=123'
+    }
+  },
   setup() {
     const res = ref([]);
-    const msg = ref("");
+    const msg = ref("1223");
     const getRes = async () => {
       const result = await test();
       res.value = result;
@@ -39,7 +44,7 @@ export default {
     getRes();
     const goTest = () => {
       console.log(1111);
-      Taro.navigateTo({ url: "/pages/test/index" });
+      Taro.navigateTo({ url: "/pages/demo/index" });
     };
     return { res, msg, goTest };
   },
