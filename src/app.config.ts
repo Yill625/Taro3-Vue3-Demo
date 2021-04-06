@@ -16,7 +16,7 @@ export default {
   },
   lazyCodeLoading: "requiredComponents",
   window: {
-    enablePullDownRefresh: true,
+    enablePullDownRefresh: false,
     backgroundColor: "#ffffff",
     backgroundTextStyle: 'dark',
     navigationBarBackgroundColor: '#fff',

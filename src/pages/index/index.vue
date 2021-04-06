@@ -36,6 +36,11 @@ export default {
       path: '/page/user?id=123'
     }
   },
+  onPullDownRefresh(){
+    this.getRes().finally(()=>{
+      Taro.stopPullDownRefresh()
+    })
+  },
   setup() {
     const store = useStore();
     const res = ref([]);

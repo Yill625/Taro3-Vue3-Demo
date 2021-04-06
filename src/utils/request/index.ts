@@ -19,9 +19,6 @@ export default function request(options) {
     data,
     header,
     timeout,
-    complete:()=>{
-      isShowLoading && hideLoading()
-    }
   })
     .then(res => {
       if (res.statusCode === 200) {
@@ -36,6 +33,8 @@ export default function request(options) {
     })
     .catch(res => {
       Taro.showToast({ title: JSON.stringify(res), icon: 'none' })
+    }).finally(()=>{
+      isShowLoading && hideLoading()
     })
 }
 
