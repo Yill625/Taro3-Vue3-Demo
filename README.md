@@ -1,4 +1,4 @@
-# Taro3-Vue3-Demo
+# Taro3-Vue3-Vuex-Demo
 
 ```js
   // option Api

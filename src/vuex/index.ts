@@ -1,8 +1,10 @@
-import { reactive, readonly } from 'vue';
+import { createStore } from "vuex";
+import userInfo from "./userInfo";
 
-export const createStore = () => {
-  const state = reactive({ counter: 0 });
-  const increment = () => state.counter++;
+const store = createStore({
+  modules: {
+    userInfo,
+  },
+});
 
-  return { increment, state: readonly(state) };
-}
+export default store;

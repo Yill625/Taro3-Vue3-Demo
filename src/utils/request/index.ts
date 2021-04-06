@@ -8,10 +8,10 @@ export default function request(options) {
     method = 'GET',
     data = {},
     header = {},
-    isShowLoading = true,
+    isShowLoading= true,
   } = options
   const timeout = 30 * 1000
-  isShowLoading ? showLoading() : ''
+  isShowLoading && showLoading()
 
   return Taro.request({
     url: baseUrl + url,
@@ -19,10 +19,11 @@ export default function request(options) {
     data,
     header,
     timeout,
+    complete:()=>{
+      isShowLoading && hideLoading()
+    }
   })
     .then(res => {
-      isShowLoading ? hideLoading() : ''
-
       if (res.statusCode === 200) {
         if (res.data.code === 200) {
           return Promise.resolve(res.data.result)
@@ -36,10 +37,6 @@ export default function request(options) {
     .catch(res => {
       Taro.showToast({ title: JSON.stringify(res), icon: 'none' })
     })
-  // .finally(() => {
-  //   // 真机上小程序不支持？？
-  //   isShowLoading ? hideLoading() : ''
-  // })
 }
 
 const showLoading = () => {
