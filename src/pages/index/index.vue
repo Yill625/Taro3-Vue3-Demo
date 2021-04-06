@@ -14,6 +14,11 @@
     </scroll-view>
     <input v-model="number" type="number" class="input" />
     <button v-if="number" @click="increment">跳转</button>
+    <fix-bar>
+      <slot-view>
+        <view>Hello world</view>
+      </slot-view>
+    </fix-bar>
   </view>
   <view @tap="increment">111</view>
 </template>
@@ -24,9 +29,13 @@ import "./index.scss";
 import { test } from "../../api/test";
 import Taro from "@tarojs/taro";
 import { useStore } from "vuex";
+import FixBar from "../components/FixBar";
 
 export default {
   name: "home",
+  components: {
+    [FixBar.name]: FixBar
+  },
   data() {
     return {
       res1: [],

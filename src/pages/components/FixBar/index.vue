@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <view>
     111
-  </div>
+    <slot></slot>
+  </view>
 </template>
+<script>
+export default {
+  name: "fix-bar"
+};
+</script>
