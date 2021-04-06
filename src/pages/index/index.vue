@@ -2,13 +2,24 @@
   <view class="index">
     <text>{{ msg }}{{ res.length }}</text>
     {{ count }}
-    <scroll-view></scroll-view>
-    <button @tap="increment">跳转</button>
+    <scroll-view
+      class="scroll-view_H"
+      scroll-x="true"
+      @scrolltoupper="bindscrolltoupper"
+      @scrolltolower="bindscrolltoupper"
+    >
+      <view id="demo1" class="scroll-view-item_H demo-text-1">1</view>
+      <view id="demo2" class="scroll-view-item_H demo-text-2">2</view>
+      <view id="demo3" class="scroll-view-item_H demo-text-3">3</view>
+    </scroll-view>
+    <input v-model="number" type="number" class="input" />
+    <button v-if="number" @click="increment">跳转</button>
   </view>
+  <view @tap="increment">111</view>
 </template>
 
 <script>
-import { onMounted, reactive, ref,computed } from "vue";
+import { onMounted, reactive, ref, computed } from "vue";
 import "./index.scss";
 import { test } from "../../api/test";
 import Taro from "@tarojs/taro";
@@ -20,26 +31,30 @@ export default {
     return {
       res1: [],
       msg1: "121",
+      number: 0
     };
   },
   created() {
     this.getRes();
   },
   methods: {
-    getRes: async function () {
+    getRes: async function() {
       this.res = await test();
     },
-  },
-   onShareAppMessage (res) {
-    return {
-      title: this.msg1,
-      path: '/page/user?id=123'
+    bindscrolltoupper: function() {
+      console.log(1111111);
     }
   },
-  onPullDownRefresh(){
-    this.getRes().finally(()=>{
-      Taro.stopPullDownRefresh()
-    })
+  onShareAppMessage(res) {
+    return {
+      title: this.msg1,
+      path: "/page/user?id=123"
+    };
+  },
+  onPullDownRefresh() {
+    this.getRes().finally(() => {
+      Taro.stopPullDownRefresh();
+    });
   },
   setup() {
     const store = useStore();
@@ -54,8 +69,29 @@ export default {
       console.log(1111);
       Taro.navigateTo({ url: "/pages/demo/index" });
     };
-    return { res, msg, goTest,count: computed(() => store.state.userInfo.count),
-      increment: () => store.commit("increment"), };
-  },
+    return {
+      res,
+      msg,
+      goTest,
+      count: computed(() => store.state.userInfo.count),
+      increment: () => store.commit("increment")
+    };
+  }
 };
 </script>
+<style lang="scss">
+page-section-spacing {
+  margin-top: 60rpx;
+}
+.scroll-view_H {
+  white-space: nowrap;
+}
+.scroll-view-item {
+  height: 300rpx;
+}
+.scroll-view-item_H {
+  display: inline-block;
+  width: 100%;
+  height: 300rpx;
+}
+</style>
