@@ -1,3 +1,6 @@
 {
-  "extends": ["taro/vue3"]
+  "extends": ["taro/vue3"],
+  "rules": {
+    "semi": ["error", "never"]
+  }
 }

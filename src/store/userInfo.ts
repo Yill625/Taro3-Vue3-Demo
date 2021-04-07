@@ -6,13 +6,13 @@ const userInfo = {
   state() {
     return {
       count: 1,
-    };
+    }
   },
   mutations: {
     increment(state: indexStore) {
-      state.count++;
+      state.count++
     },
   },
-};
+}
 
-export default userInfo;
+export default userInfo

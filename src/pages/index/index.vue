@@ -24,12 +24,12 @@
 </template>
 
 <script>
-import { onMounted, reactive, ref, computed } from "vue";
-import "./index.scss";
-import { test } from "../../api/test";
-import Taro from "@tarojs/taro";
-import { useStore } from "vuex";
-import FixBar from "../components/FixBar";
+import { onMounted, reactive, ref, computed } from "vue"
+import "./index.scss"
+import { test } from "../../api/test"
+import Taro from "@tarojs/taro"
+import { useStore } from "vuex"
+import FixBar from "../components/FixBar"
 
 export default {
   name: "home",
@@ -41,52 +41,52 @@ export default {
       res1: [],
       msg1: "121",
       number: 0
-    };
+    }
   },
   created() {
-    this.getRes();
+    this.getRes()
   },
   methods: {
     getRes: async function() {
-      this.res = await test();
+      this.res = await test()
     },
     bindscrolltoupper: function() {
-      console.log(1111111);
+      console.log(1111111)
     }
   },
   onShareAppMessage(res) {
     return {
       title: this.msg1,
       path: "/page/user?id=123"
-    };
+    }
   },
   onPullDownRefresh() {
     this.getRes().finally(() => {
-      Taro.stopPullDownRefresh();
-    });
+      Taro.stopPullDownRefresh()
+    })
   },
   setup() {
-    const store = useStore();
-    const res = ref([]);
-    const msg = ref("1223");
+    const store = useStore()
+    const res = ref([])
+    const msg = ref("1223")
     const getRes = async () => {
-      const result = await test();
-      res.value = result;
-    };
-    getRes();
+      const result = await test()
+      res.value = result
+    }
+    getRes()
     const goTest = () => {
-      console.log(1111);
-      Taro.navigateTo({ url: "/pages/demo/index" });
-    };
+      console.log(1111)
+      Taro.navigateTo({ url: "/pages/demo/index" })
+    }
     return {
       res,
       msg,
       goTest,
       count: computed(() => store.state.userInfo.count),
       increment: () => store.commit("increment")
-    };
+    }
   }
-};
+}
 </script>
 <style lang="scss">
 page-section-spacing {

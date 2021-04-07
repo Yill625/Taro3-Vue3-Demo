@@ -7,24 +7,24 @@
 </template>
 
 <script>
-import { onMounted, reactive, ref, computed } from "vue";
-import "./index.scss";
-import { test } from "../../api/test";
-import { useStore } from "vuex";
+import { onMounted, reactive, ref, computed } from "vue"
+import "./index.scss"
+import { test } from "../../api/test"
+import { useStore } from "vuex"
 
 export default {
   name: "test",
   setup() {
-    const store = useStore();
-    const count = computed(() => store.state.userInfo.count);
-    const res = ref([]);
-    const msg = ref("111");
+    const store = useStore()
+    const count = computed(() => store.state.userInfo.count)
+    const res = ref([])
+    const msg = ref("111")
     const getRes = async () => {
-      const result = await test();
-      res.value = result;
-    };
-    getRes();
-    return { res, msg, count };
+      const result = await test()
+      res.value = result
+    }
+    getRes()
+    return { res, msg, count }
   }
-};
+}
 </script>
