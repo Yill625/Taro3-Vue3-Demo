@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import './app.scss'
 import store from "./vuex/index"
 import { systmeInfo } from './utils/envInfo'
+import 'promise-prototype-finally'
 
 const App = createApp({
   onShow(options) { },
