@@ -1,7 +1,6 @@
 <template>
   <view class="index">
-    <text>{{ msg }}{{ res.length }}</text>
-    {{ count }}111
+    <text>{{ count }}</text>
     <scroll-view
       class="scroll-view_H"
       scroll-x="true"
@@ -36,27 +35,9 @@ export default {
   components: {
     [FixBar.name]: FixBar
   },
-  data() {
-    return {
-      res1: [],
-      msg1: '121',
-      number: 0
-    }
-  },
-  created() {
-    this.getRes()
-  },
-  methods: {
-    getRes: async function () {
-      this.res = await test()
-    },
-    bindscrolltoupper: function () {
-      console.log(1111111)
-    }
-  },
   onShareAppMessage(res) {
     return {
-      title: this.msg1,
+      title: this.msg,
       path: '/page/user?id=123'
     }
   },
@@ -69,19 +50,28 @@ export default {
     const store = useStore()
     const res = ref([])
     const msg = ref('1223')
+    const number = ref(0)
     const getRes = async () => {
       const result = await test()
       res.value = result
     }
+    console.log(this)
+
     getRes()
     const goTest = () => {
       console.log(1111)
       Taro.navigateTo({ url: '/pages/demo/index' })
     }
+    const bindscrolltoupper = () => {
+      console.log(111)
+    }
     return {
       res,
       msg,
       goTest,
+      getRes,
+      bindscrolltoupper,
+      number,
       count: computed(() => store.state.userInfo.count),
       increment: () => store.commit('increment')
     }
