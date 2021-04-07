@@ -1,7 +1,7 @@
 <template>
   <view class="index">
     <text>{{ msg }}{{ res.length }}</text>
-    {{ count }}
+    {{ count }}111
     <scroll-view
       class="scroll-view_H"
       scroll-x="true"
@@ -13,7 +13,7 @@
       <view id="demo3" class="scroll-view-item_H demo-text-3">3</view>
     </scroll-view>
     <input v-model="number" type="number" class="input" />
-    <button v-if="number" @click="increment">跳转</button>
+    <button @tap="increment">跳转</button>
     <fix-bar>
       <slot-view>
         <view>Hello world</view>
