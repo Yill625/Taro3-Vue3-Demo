@@ -1,6 +1,7 @@
 import Taro from '@tarojs/taro'
 
-const baseUrl = 'https://www.fastmock.site/mock/8758c50fc11f2cdf32329dc978115c51/stark'
+const baseUrl =
+  'https://www.fastmock.site/mock/8758c50fc11f2cdf32329dc978115c51/stark'
 
 export default function request(options) {
   const {
@@ -8,7 +9,7 @@ export default function request(options) {
     method = 'GET',
     data = {},
     header = {},
-    isShowLoading= true,
+    isShowLoading = true
   } = options
   const timeout = 30 * 1000
   isShowLoading && showLoading()
@@ -18,7 +19,7 @@ export default function request(options) {
     method,
     data,
     header,
-    timeout,
+    timeout
   })
     .then(res => {
       if (res.statusCode === 200) {
@@ -33,7 +34,8 @@ export default function request(options) {
     })
     .catch(res => {
       Taro.showToast({ title: JSON.stringify(res), icon: 'none' })
-    }).finally(()=>{
+    })
+    .finally(() => {
       isShowLoading && hideLoading()
     })
 }

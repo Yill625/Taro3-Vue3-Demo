@@ -1,8 +1,8 @@
-import { createApp } from "vue"
-import "./app.scss"
-import store from "./store/index"
-import { systmeInfo } from "./utils/envInfo"
-import "promise-prototype-finally"
+import { createApp } from 'vue'
+import './app.scss'
+import store from './store/index'
+import { systmeInfo } from './utils/envInfo'
+import 'promise-prototype-finally'
 
 const App = createApp({
   onShow(options) {},

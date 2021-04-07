@@ -47,10 +47,10 @@ export default {
     this.getRes()
   },
   methods: {
-    getRes: async function() {
+    getRes: async function () {
       this.res = await test()
     },
-    bindscrolltoupper: function() {
+    bindscrolltoupper: function () {
       console.log(1111111)
     }
   },
