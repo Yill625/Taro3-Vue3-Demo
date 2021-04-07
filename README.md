@@ -8,6 +8,10 @@
    > 例如 小程序的点击事件 bindtap 换成@tap
 2. finally 无法使用
    > yarn add promise-prototype-finally
+3. solt 的使用
+   > https://taro-docs.jd.com/taro/docs/hybrid#%E4%BD%BF%E7%94%A8-slot
+
+## Vue3 基本使用
 
 ```js
   // option Api
