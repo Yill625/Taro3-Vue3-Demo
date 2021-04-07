@@ -1,6 +1,3 @@
 {
-  "extends": ["taro/vue3"],
-  "rules": {
-    "semi": ["error", "never"]
-  }
+  "extends": ["plugin:prettier/recommended", "taro/vue3", "prettier/vue"]
 }

@@ -24,22 +24,22 @@
 </template>
 
 <script>
-import { onMounted, reactive, ref, computed } from "vue"
-import "./index.scss"
-import { test } from "../../api/test"
-import Taro from "@tarojs/taro"
-import { useStore } from "vuex"
-import FixBar from "../components/FixBar"
+import { onMounted, reactive, ref, computed } from 'vue'
+import './index.scss'
+import { test } from '../../api/test'
+import Taro from '@tarojs/taro'
+import { useStore } from 'vuex'
+import FixBar from '../components/FixBar'
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
     [FixBar.name]: FixBar
   },
   data() {
     return {
       res1: [],
-      msg1: "121",
+      msg1: '121',
       number: 0
     }
   },
@@ -57,7 +57,7 @@ export default {
   onShareAppMessage(res) {
     return {
       title: this.msg1,
-      path: "/page/user?id=123"
+      path: '/page/user?id=123'
     }
   },
   onPullDownRefresh() {
@@ -68,7 +68,7 @@ export default {
   setup() {
     const store = useStore()
     const res = ref([])
-    const msg = ref("1223")
+    const msg = ref('1223')
     const getRes = async () => {
       const result = await test()
       res.value = result
@@ -76,14 +76,14 @@ export default {
     getRes()
     const goTest = () => {
       console.log(1111)
-      Taro.navigateTo({ url: "/pages/demo/index" })
+      Taro.navigateTo({ url: '/pages/demo/index' })
     }
     return {
       res,
       msg,
       goTest,
       count: computed(() => store.state.userInfo.count),
-      increment: () => store.commit("increment")
+      increment: () => store.commit('increment')
     }
   }
 }
