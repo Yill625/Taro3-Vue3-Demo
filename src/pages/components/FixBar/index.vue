@@ -6,6 +6,6 @@
 </template>
 <script>
 export default {
-  name: "fix-bar"
+  name: 'fix-bar'
 }
 </script>
