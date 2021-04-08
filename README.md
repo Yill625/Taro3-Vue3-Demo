@@ -1,4 +1,4 @@
-# Taro3-Vue3-Vuex-Demo
+# Taro3-Vue3-Ts-Vuex-Demo
 
 > 在 Taro3 中使用 Vue
 
