@@ -79,19 +79,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-page-section-spacing {
-  margin-top: 60rpx;
-}
-.scroll-view_H {
-  white-space: nowrap;
-}
-.scroll-view-item {
-  height: 300rpx;
-}
-.scroll-view-item_H {
-  display: inline-block;
-  width: 100%;
-  height: 300rpx;
-}
-</style>

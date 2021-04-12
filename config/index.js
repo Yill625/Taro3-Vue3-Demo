@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'Taro3-Vue3-Demo',
   date: '2020-12-30',
