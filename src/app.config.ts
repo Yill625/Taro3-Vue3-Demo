@@ -1,23 +1,22 @@
 export default {
-  pages: [
-    'pages/index/index',
-    'pages/test/index',
-    'pages/demo/index'
-  ],
+  pages: ['pages/index/index', 'pages/test/index', 'pages/demo/index'],
   tabBar: {
     borderStyle: 'white',
-    list: [{
-      pagePath: "pages/index/index",
-      text: "首页"
-    }, {
-      pagePath: "pages/test/index",
-      text: "日志"
-    }]
+    list: [
+      {
+        pagePath: 'pages/index/index',
+        text: '首页'
+      },
+      {
+        pagePath: 'pages/test/index',
+        text: '日志'
+      }
+    ]
   },
-  lazyCodeLoading: "requiredComponents",
+  lazyCodeLoading: 'requiredComponents',
   window: {
     enablePullDownRefresh: false,
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
     backgroundTextStyle: 'dark',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
