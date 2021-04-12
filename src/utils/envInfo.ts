@@ -1,3 +1,3 @@
 import Taro from '@tarojs/taro'
 
-export const systmeInfo = Taro.getSystemInfoSync()
+export const systemInfo = Taro.getSystemInfoSync()

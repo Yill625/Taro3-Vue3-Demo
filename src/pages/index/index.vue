@@ -22,13 +22,13 @@
   <view @tap="increment">111</view>
 </template>
 
-<script>
-import { onMounted, reactive, ref, computed } from 'vue'
+<script lang="ts">
+import { ref, computed } from 'vue'
 import './index.scss'
 import { test } from '../../api/test'
 import Taro from '@tarojs/taro'
 import { useStore } from 'vuex'
-import FixBar from '../components/FixBar'
+import FixBar from '../components/FixBar/index.vue'
 
 export default {
   name: 'home',
@@ -51,13 +51,14 @@ export default {
     const res = ref([])
     const msg = ref('1223')
     const number = ref(0)
-    const getRes = async () => {
+    const getRes = async (a: number) => {
+      console.log(a)
       const result = await test()
       res.value = result
     }
     console.log(this)
 
-    getRes()
+    getRes(12)
     const goTest = () => {
       console.log(1111)
       Taro.navigateTo({ url: '/pages/demo/index' })

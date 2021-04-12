@@ -4,8 +4,9 @@
     <slot></slot>
   </view>
 </template>
-<script>
-export default {
-  name: "fix-bar"
-}
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'fix-bar'
+})
 </script>
