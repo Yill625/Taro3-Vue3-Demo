@@ -2,6 +2,8 @@
 
 > 在 Taro3 中使用 Vue
 
+https://taro-club.jd.com/topic/2267/%E4%BD%BF%E7%94%A8-vue3-%E5%BC%80%E5%8F%91%E5%B0%8F%E7%A8%8B%E5%BA%8F
+
 ## 使用 Taro + Vue 注意要点
 
 1. 使用小程序组件事件需要将 bind 换成@或者 v-on
