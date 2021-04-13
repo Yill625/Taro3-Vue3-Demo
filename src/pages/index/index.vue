@@ -1,6 +1,6 @@
 <template>
   <view class="index">
-    <text>{{ count }}</text>
+    <text class="test">{{ count }}</text>
     <scroll-view
       class="scroll-view_H"
       scroll-x="true"
@@ -17,7 +17,8 @@
       class="input"
       :class="{ active: isActive }"
     />
-    <button @tap="increment">跳转</button>
+    <button @tap="increment">++</button>
+    <button @tap="showNumber">跳转</button>
     <fix-bar class="baz">
       <slot-view>
         <view>Hello world</view>
@@ -40,7 +41,7 @@ export default {
   components: {
     [FixBar.name]: FixBar
   },
-  onShareAppMessage(res) {
+  onShareAppMessage() {
     return {
       title: this.msg,
       path: '/page/user?id=123'
@@ -65,6 +66,9 @@ export default {
     console.log(this)
 
     getRes(12)
+    const showNumber = () => {
+      console.log(number)
+    }
     const goTest = () => {
       console.log(1111)
       Taro.navigateTo({ url: '/pages/demo/index' })
@@ -80,6 +84,7 @@ export default {
       isActive,
       bindscrolltoupper,
       number,
+      showNumber,
       count: computed(() => store.state.userInfo.count),
       increment: () => store.commit('increment')
     }

@@ -10,6 +10,9 @@
    > yarn add promise-prototype-finally
 3. solt 的使用
    > https://taro-docs.jd.com/taro/docs/hybrid#%E4%BD%BF%E7%94%A8-slot
+4. taro 3.0 + Vue 中 scoped 在 h5 下生效，在微信小程序中无效
+
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gpi7rpndinj31dx0u0tie.jpg)
 
 ## Vue3 基本使用
 

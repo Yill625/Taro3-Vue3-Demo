@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="test">
     111
     <slot></slot>
   </view>
