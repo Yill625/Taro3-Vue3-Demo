@@ -15,7 +15,7 @@ const config = {
   plugins: [],
   defineConstants: {},
   copy: {
-    patterns: [{ from: 'sitemap.json', to: 'dist/sitemap.json' }],
+    patterns: [{ from: 'sitemap.json', to: `dist/${process.env.TARO_ENV}` }],
     options: {}
   },
   framework: 'vue3',
