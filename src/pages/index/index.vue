@@ -11,9 +11,14 @@
       <view id="demo2" class="scroll-view-item_H demo-text-2">2</view>
       <view id="demo3" class="scroll-view-item_H demo-text-3">3</view>
     </scroll-view>
-    <input v-model="number" type="number" class="input" />
+    <input
+      v-model="number"
+      type="number"
+      class="input"
+      :class="{ active: isActive }"
+    />
     <button @tap="increment">跳转</button>
-    <fix-bar>
+    <fix-bar class="baz">
       <slot-view>
         <view>Hello world</view>
       </slot-view>
@@ -47,6 +52,7 @@ export default {
     })
   },
   setup() {
+    const isActive = true
     const store = useStore()
     const res = ref([])
     const msg = ref('1223')
@@ -71,6 +77,7 @@ export default {
       msg,
       goTest,
       getRes,
+      isActive,
       bindscrolltoupper,
       number,
       count: computed(() => store.state.userInfo.count),

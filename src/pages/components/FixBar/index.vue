@@ -3,6 +3,7 @@
     111
     <slot></slot>
   </view>
+  <view :class="$attrs.class"> 222 </view>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
