@@ -7,7 +7,13 @@
   <view :class="$attrs.class"> 222 </view>
 </template>
 <script lang="ts">
-import { computed, defineComponent, toRef, toRefs } from 'vue'
+import {
+  computed,
+  defineComponent,
+  toRef,
+  toRefs,
+  getCurrentInstance
+} from 'vue'
 export default defineComponent({
   name: 'fix-bar',
   props: {
@@ -20,7 +26,7 @@ export default defineComponent({
     const title1 = computed(() => {
       return props.title + 1
     })
-    // console.log(context)
+    console.log(getCurrentInstance())
     // const { title } = toRefs(props)
     return { title1 }
   }

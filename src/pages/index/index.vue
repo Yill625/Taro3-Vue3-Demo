@@ -26,6 +26,9 @@
     </fix-bar>
   </view>
   <view @tap="increment">111</view>
+  <transition name="fade" mode="out-in">
+    <view v-if="count > 2">toggled content</view>
+  </transition>
 </template>
 
 <script lang="ts">
