@@ -19,7 +19,7 @@
     />
     <button @tap="increment">++</button>
     <button @tap="showNumber">跳转</button>
-    <fix-bar class="baz">
+    <fix-bar class="baz" :title="count">
       <slot-view>
         <view>Hello world</view>
       </slot-view>
