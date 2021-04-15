@@ -2,7 +2,7 @@
   <view class="index">
     <button>1111111</button>
     <text class="test">{{ count }}</text>
-    <scroll-view>+++</scroll-view>
+    <scroll-view>++++++++</scroll-view>
   </view>
 </template>
 
