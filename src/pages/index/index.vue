@@ -32,11 +32,12 @@
 </template>
 
 <script lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import './index.scss'
 import { test } from '../../api/test'
 import Taro from '@tarojs/taro'
 import { useStore } from 'vuex'
+import useDebounceFn from '../../hooks/useDebounceFn'
 import FixBar from '../components/FixBar/index.vue'
 
 export default {
@@ -79,6 +80,15 @@ export default {
     const bindscrolltoupper = () => {
       console.log(111)
     }
+    const consoleCount = useDebounceFn(count => {
+      console.log(count)
+    }, 1000)
+    watch(number, (count, prevCount) => {
+      consoleCount(count)
+    })
+    const submit = useDebounceFn(() => {
+      store.commit('increment')
+    }, 1000)
     return {
       res,
       msg,
@@ -89,7 +99,7 @@ export default {
       number,
       showNumber,
       count: computed(() => store.state.userInfo.count),
-      increment: () => store.commit('increment')
+      increment: submit
     }
   }
 }
